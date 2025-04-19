@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonts and styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/pages/checkout/checkout-header.css">
+    <link rel="stylesheet" href="styles/pages/checkout/checkout.css">
+
+    <style>
+        .place-order-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .common-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #ffd814;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            width: 250px; /* Set same width for both buttons */
+        }
+        
+        .common-button:hover {
+            background-color: #f7ca00;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="checkout-header">
+        <div class="header-content">
+            <div class="checkout-header-left-section">
+                <a href="amazon.html">
+                    <img class="amazon-logo" src="images/amazon-logo.png">
+                    <img class="amazon-mobile-logo" src="images/amazon-mobile-logo.png">
+                </a>
+            </div>
+
+            <div class="checkout-header-middle-section">
+                Checkout (<a class="return-to-home-link" href="amazon.html"> items</a>)
+            </div>
+
+            <div class="checkout-header-right-section">
+                <img src="images/icons/checkout-lock-icon.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="page-title">Review your order</div>
+
+        <div class="checkout-grid">
+            <div class="order-summary js-order-summary">
+                <!-- Order details go here -->
+            </div>
+
+            <div class="payment-summary js-payment-summary">
+                <!-- Payment summary goes here -->
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="place-order-container">
+            <button class="common-button" style="margin-right: 32px;" onclick="redirectToAddress()">Add Address</button>
+            <button class="common-button" onclick="redirectToPayment()">Place Your Order</button>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/checkout.js"></script>
+    <script>
+        function redirectToPayment() {
+            window.location.href = "payment.html";
+        }
+
+        function redirectToAddress() {
+            window.location.href = "address.html";
+        }
+    </script>
+</body>
+
+</html>

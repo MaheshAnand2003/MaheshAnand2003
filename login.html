@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Clone - Login/Signup</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <img class="amazonlogo" src="/amazon-logo-amazon-icon-transparent-free-png.webp" alt="">
+      <h1 id="title">Login</h1>
+      <form id="authForm">
+        <div class="input-group">
+          <input type="text" id="nameField" placeholder="Name" style="display: none;" />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display: none;" />
+        </div>
+        <button type="submit" class="btn">Submit</button>
+        <p class="switch-text">
+          Don’t have an account? <a href="#" id="switchToSignup">Signup here</a>
+          <br>
+          Already have an account? <a href="#" id="switchToLogin">Login here</a>
+        </p>
+      </form>
+    </div>
+    
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

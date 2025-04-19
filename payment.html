@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Payment</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Amazon Ember", Arial, sans-serif;
+      background-color: #f3f3f3;
+    }
+
+    .amazon-header {
+      background-color: #f08804;
+      color: black;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .amazon-header img {
+      height: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .payment-container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #111;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .payment-btn {
+      padding: 12px;
+      flex: 1;
+      margin: 0 5px;
+      background-color: #ffd814;
+      border: 1px solid #fcd200;
+      color: #111;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .payment-btn:hover {
+      background-color: #f7ca00;
+    }
+
+    .input-section input {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #payNowBtn {
+      background-color: #ffa41c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #payNowBtn:hover {
+      background-color: #ff8f00;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="amazon-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+  </div>
+
+  <div class="payment-container">
+    <h1>Select Your Payment Method</h1>
+
+    <div class="payment-options">
+      <button class="payment-btn" onclick="selectPayment('cod')">Cash on Delivery</button>
+      <button class="payment-btn" onclick="selectPayment('upi')">UPI</button>
+      <button class="payment-btn" onclick="selectPayment('card')">Card</button>
+    </div>
+
+    <div class="input-section" id="inputSection">
+      <!-- Dynamic input will appear here -->
+    </div>
+
+    <div class="result" id="resultMsg"></div>
+  </div>
+
+  <script>
+    function selectPayment(method) {
+      const inputSection = document.getElementById('inputSection');
+      const resultMsg = document.getElementById('resultMsg');
+      inputSection.innerHTML = '';
+      resultMsg.innerText = '';
+
+      if (method === 'cod') {
+        resultMsg.innerText = 'Order Placed Successfully! (Cash on Delivery)';
+        setTimeout(() => {
+          window.location.href = 'orders.html';
+        }, 2000);
+      }
+
+      else if (method === 'upi') {
+        inputSection.innerHTML = `
+          <input type="text" id="upiId" placeholder="Enter UPI ID" />
+          <button id="payNowBtn" onclick="pay('upi')">Pay Now</button>
+        `;
+      }
+
+      else if (method === 'card') {
+        inputSection.innerHTML = `
+          <input type="text" id="cardNumber" placeholder="Enter Card Number" />
+          <button id="payNowBtn" onclick="pay('card')">Pay Now</button>
+        `;
+      }
+    }
+
+    function pay(method) {
+      const resultMsg = document.getElementById('resultMsg');
+
+      if (method === 'upi') {
+        const upiId = document.getElementById('upiId').value;
+        if (!upiId) {
+          alert("Please enter a valid UPI ID");
+          return;
+        }
+        resultMsg.innerText = `Notification sent to ${upiId}.\nPayment Successful!\nOrder Placed!`;
+        setTimeout(() => {
+          window.location.href = 'orders.html';
+        }, 2000);
+      }
+
+      else if (method === 'card') {
+        const cardNumber = document.getElementById('cardNumber').value;
+        if (!cardNumber || cardNumber.length < 12) {
+          alert("Please enter a valid card number");
+          return;
+        }
+        resultMsg.innerText = `Payment processed for card ending in ${cardNumber.slice(-4)}.\nOrder Placed!`;
+        setTimeout(() => {
+          window.location.href = 'orders.html';
+        }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>

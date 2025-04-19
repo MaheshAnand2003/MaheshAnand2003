@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Address Section</title>
+  <style>
+    body {
+      font-family: "Amazon Ember", sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #f08804;
+      padding: 15px 30px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #111;
+    }
+
+    .address-box {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    .add-btn {
+      background-color: #ffd814;
+      color: #111;
+      padding: 10px 20px;
+      border: 1px solid #fcd200;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .add-btn:hover {
+      background-color: #f7ca00;
+    }
+
+    .form-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #saveBtn {
+      background-color: #ffa41c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #saveBtn:hover {
+      background-color: #ff8f00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    Amazon - Your Addresses
+  </div>
+
+  <div class="container">
+    <h2>Saved Addresses</h2>
+    <div id="addressList">
+      <!-- Existing addresses will appear here -->
+    </div>
+
+    <button class="add-btn" onclick="toggleForm()">+ Add New Address</button>
+
+    <div class="form-section" id="formSection">
+      <h3>Add New Address</h3>
+      <input type="text" id="fullName" placeholder="Full Name" />
+      <input type="text" id="mobile" placeholder="Mobile Number" />
+      <input type="text" id="house" placeholder="Flat, House no., Building, Company, Apartment" />
+      <input type="text" id="area" placeholder="Area, Street, Sector, Village" />
+      <input type="text" id="city" placeholder="Town/City" />
+      <input type="text" id="state" placeholder="State" />
+      <input type="text" id="pincode" placeholder="Pincode" />
+      <button id="saveBtn" onclick="saveAddress()">Save Address</button>
+    </div>
+  </div>
+
+  <script>
+    let addresses = [];
+
+    function toggleForm() {
+      const form = document.getElementById('formSection');
+      form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+    }
+
+    function saveAddress() {
+      const fullName = document.getElementById('fullName').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const house = document.getElementById('house').value.trim();
+      const area = document.getElementById('area').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const state = document.getElementById('state').value.trim();
+      const pincode = document.getElementById('pincode').value.trim();
+
+      if (!fullName || !mobile || !house || !area || !city || !state || !pincode) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      const newAddress = {
+        fullName,
+        mobile,
+        house,
+        area,
+        city,
+        state,
+        pincode
+      };
+
+      addresses.push(newAddress);
+      renderAddresses();
+      document.getElementById('formSection').style.display = 'none';
+      clearForm();
+    }
+
+    function renderAddresses() {
+      const list = document.getElementById('addressList');
+      list.innerHTML = '';
+
+      addresses.forEach((address, index) => {
+        list.innerHTML += `
+          <div class="address-box">
+            <strong>${address.fullName}</strong><br>
+            ${address.house}, ${address.area}<br>
+            ${address.city}, ${address.state} - ${address.pincode}<br>
+            Mobile: ${address.mobile}
+          </div>
+        `;
+      });
+    }
+
+    function clearForm() {
+      document.getElementById('fullName').value = '';
+      document.getElementById('mobile').value = '';
+      document.getElementById('house').value = '';
+      document.getElementById('area').value = '';
+      document.getElementById('city').value = '';
+      document.getElementById('state').value = '';
+      document.getElementById('pincode').value = '';
+    }
+
+    // Optional: Load with one default address
+    addresses.push({
+      fullName: "Mahesh Anand",
+      mobile: "7093000012",
+      house: "123, Hero Apartments",
+      area: "kokapet",
+      city: "Hyderabad",
+      state: "Telangana",
+      pincode: "500034"
+    });
+
+    renderAddresses();
+  </script>
+</body>
+</html>
