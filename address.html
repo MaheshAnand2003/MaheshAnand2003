@@ -6,83 +6,102 @@
   <title>Amazon Address Section</title>
   <style>
     body {
-      font-family: "Amazon Ember", sans-serif;
-      background-color: #f3f3f3;
+      font-family: "Amazon Ember", Arial, sans-serif;
+      background-color: #eaeaea;
       margin: 0;
       padding: 0;
     }
-
+    
     .header {
-      background-color: #f08804;
+      background-color: #232f3e;
       padding: 15px 30px;
       color: white;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 22px;
+      font-weight: 600;
     }
-
+    
     .container {
-      max-width: 700px;
+      max-width: 720px;
       margin: 40px auto;
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
-
+    
     h2 {
       margin-top: 0;
       color: #111;
+      font-size: 22px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
     }
-
+    
     .address-box {
       border: 1px solid #ddd;
       padding: 15px;
       margin-bottom: 15px;
-      border-radius: 8px;
+      border-radius: 6px;
+      background-color: #f7f7f7;
+      font-size: 14px;
+      line-height: 1.6;
     }
-
+    
     .add-btn {
       background-color: #ffd814;
-      color: #111;
-      padding: 10px 20px;
+      color: #0f1111;
+      padding: 10px 25px;
       border: 1px solid #fcd200;
       font-weight: bold;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       margin-top: 10px;
+      font-size: 14px;
       transition: background 0.3s ease;
     }
-
+    
     .add-btn:hover {
       background-color: #f7ca00;
     }
-
+    
     .form-section {
       display: none;
       margin-top: 20px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
     }
-
+    
     input {
-      padding: 10px;
-      margin-bottom: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
       width: 100%;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      border-radius: 4px;
+      border: 1px solid #a6a6a6;
+      font-size: 14px;
+      box-sizing: border-box;
     }
-
+    
+    input:focus {
+      border-color: #e77600;
+      outline: none;
+      box-shadow: 0 0 3px 1px rgba(228,121,17,0.5);
+    }
+    
     #saveBtn {
       background-color: #ffa41c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
+      color: #111;
+      border: 1px solid #ff8f00;
+      padding: 10px 25px;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 14px;
     }
-
+    
     #saveBtn:hover {
       background-color: #ff8f00;
     }
+    
   </style>
 </head>
 <body>
