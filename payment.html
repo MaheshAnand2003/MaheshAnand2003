@@ -9,89 +9,100 @@
       margin: 0;
       padding: 0;
       font-family: "Amazon Ember", Arial, sans-serif;
-      background-color: #f3f3f3;
+      background-color: #eaeaea;
     }
-
+    
     .amazon-header {
-      background-color: #f08804;
-      color: black;
+      background-color: #232f3e;
+      color: white;
       padding: 15px 30px;
       display: flex;
       align-items: center;
     }
-
+    
     .amazon-header img {
       height: 40px;
-      filter: brightness(0) invert(1);
     }
-
+    
     .payment-container {
       max-width: 500px;
       margin: 50px auto;
-      background-color: white;
-      padding: 30px;
+      background-color: #ffffff;
+      padding: 30px 25px;
       border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
+    
     h1 {
-      color: #111;
-      font-size: 22px;
-      margin-bottom: 20px;
+      color: #0f1111;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
     }
-
+    
     .payment-options {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 12px;
       margin-bottom: 20px;
     }
-
+    
     .payment-btn {
       padding: 12px;
-      flex: 1;
-      margin: 0 5px;
       background-color: #ffd814;
       border: 1px solid #fcd200;
-      color: #111;
-      font-weight: 600;
-      border-radius: 6px;
+      color: #0f1111;
+      font-weight: 500;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s ease;
+      font-size: 14px;
+      transition: background-color 0.2s ease;
     }
-
+    
     .payment-btn:hover {
       background-color: #f7ca00;
     }
-
+    
     .input-section input {
-      padding: 10px;
+      padding: 12px;
       width: 100%;
       margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: 1px solid #a6a6a6;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
     }
-
+    
+    .input-section input:focus {
+      outline: none;
+      border-color: #e77600;
+      box-shadow: 0 0 3px 1px rgba(228,121,17,0.5);
+    }
+    
     #payNowBtn {
       background-color: #ffa41c;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      margin-top: 10px;
-      border-radius: 4px;
+      color: #111;
+      border: 1px solid #ff8f00;
+      padding: 12px 20px;
+      border-radius: 8px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: bold;
+      font-size: 14px;
     }
-
+    
     #payNowBtn:hover {
-      background-color: #ff8f00;
+      background-color: #ff9900;
     }
-
+    
     .result {
       margin-top: 20px;
-      font-weight: bold;
-      color: green;
-      font-size: 16px;
+      font-weight: 600;
+      color: #007600;
+      font-size: 15px;
     }
+    
   </style>
 </head>
 <body>
